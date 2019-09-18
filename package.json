@@ -1,0 +1,35 @@
+{
+  "name": "hello-world-simple",
+  "version": "1.0.0",
+  "description": "A blank Koji template",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "if command -v rsync 2>/dev/null; then echo 'ready'; else apt-get update; apt-get install -y rsync; fi",
+    "build": "rsync --delete -a src/ build; npx browserify src/modules.js -t [ babelify --presets [ @babel/preset-env ] ] -o build/modules.js",
+    "watch": "npx chokidar '.koji' -c 'npx koji-vcc; npm run build'",
+    "serve": "live-server --no-browser build",
+    "start": "npm run watch & npm run serve"
+  },
+  "config": {
+    "unsafe-perm": true
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/madewithkoji/hello-world-simple.git"
+  },
+  "keywords": [
+    "Koji",
+    "Hello World"
+  ],
+  "author": "gron",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "@withkoji/vcc": "^1.0.4",
+    "babelify": "^10.0.0",
+    "browserify": "^16.5.0",
+    "chokidar-cli": "^2.0.0",
+    "live-server": "^1.2.1"
+  }
+}
