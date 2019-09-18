@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "if command -v rsync 2>/dev/null; then echo 'ready'; else apt-get update; apt-get install -y rsync; fi",
+    "prestart": "koji-vcc watch &",
     "build": "rsync --delete -a src/ build; npx browserify src/modules.js -t [ babelify --presets [ @babel/preset-env ] ] -o build/modules.js",
-    "watch": "npx chokidar '.koji' -c 'npx koji-vcc; npm run build'",
+    "watch": "npx chokidar '.koji/**/*' 'src/**/*' -c 'npm run build'",
     "serve": "live-server --no-browser build",
     "start": "npm run watch & npm run serve"
   },
