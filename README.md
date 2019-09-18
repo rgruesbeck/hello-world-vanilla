@@ -1,4 +1,4 @@
-# Hello World with Simple
+# Hello World Simple
 A blank template ready for your own favorite tools.
 With this template you can import javascript with script tags, but if you need anything from npm you can load them through the modules.js file.
 
