@@ -13,8 +13,8 @@ With this template you can import javascript with script tags, but if you need a
 - [modules.js](#~/modules.js) 
 
 ## Dependencies
-- [browserfiy + babel](http://browserify.org/) use require('modules') in the browser.
-- [budo](https://github.com/mattdesl/budo) easy browserify development server.
+- [browserfiy + babel](http://browserify.org/) require/inport modules.
+- [live-server](https://www.npmjs.com/package/live-server) a simple http server.
 - [koji-vcc](https://www.npmjs.com/package/@withkoji/vcc) a library for making vcc integration easy.
 
 ## Support
